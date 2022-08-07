@@ -2,8 +2,13 @@ import './App.css';
 
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+
 
 import {Routes , Route} from 'react-router-dom';
+import Create from './components/Create/Create';
+import Catalog from './components/Catalog/Catalog';
 
 function App() {
     return (
@@ -13,6 +18,10 @@ function App() {
             <main id="main-content">
                 <Routes>
                     <Route path='/' element={<Home />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/register' element={<Register />} />
+                    <Route path='/create' element={<Create />} />
+                    <Route path='/catalog' element={<Catalog />} />
                 </Routes>
                 
             </main>
@@ -25,49 +34,7 @@ function App() {
 
 
             {/* Create Page ( Only for logged-in users ) */}
-            <section id="create-page" className="auth">
-                <form id="create">
-                    <div className="container">
-                        <h1>Create Game</h1>
-                        <label htmlFor="leg-title">Legendary title:</label>
-                        <input
-                            type="text"
-                            id="title"
-                            name="title"
-                            placeholder="Enter game title..."
-                        />
-                        <label htmlFor="category">Category:</label>
-                        <input
-                            type="text"
-                            id="category"
-                            name="category"
-                            placeholder="Enter game category..."
-                        />
-                        <label htmlFor="levels">MaxLevel:</label>
-                        <input
-                            type="number"
-                            id="maxLevel"
-                            name="maxLevel"
-                            min={1}
-                            placeholder={1}
-                        />
-                        <label htmlFor="game-img">Image:</label>
-                        <input
-                            type="text"
-                            id="imageUrl"
-                            name="imageUrl"
-                            placeholder="Upload a photo..."
-                        />
-                        <label htmlFor="summary">Summary:</label>
-                        <textarea name="summary" id="summary" defaultValue={""} />
-                        <input
-                            className="btn submit"
-                            type="submit"
-                            defaultValue="Create Game"
-                        />
-                    </div>
-                </form>
-            </section>
+            
             {/* Edit Page ( Only for the creator )*/}
             <section id="edit-page" className="auth">
                 <form id="edit">
@@ -154,42 +121,7 @@ function App() {
                 </article>
             </section>
             {/* Catalogue */}
-            <section id="catalog-page">
-                <h1>All Games</h1>
-                {/* Display div: with information about every game (if any) */}
-                <div className="allGames">
-                    <div className="allGames-info">
-                        <img src="./images/avatar-1.jpg" />
-                        <h6>Action</h6>
-                        <h2>Cover Fire</h2>
-                        <a href="#" className="details-button">
-                            Details
-                        </a>
-                    </div>
-                </div>
-                <div className="allGames">
-                    <div className="allGames-info">
-                        <img src="./images/avatar-1.jpg" />
-                        <h6>Action</h6>
-                        <h2>Zombie lang</h2>
-                        <a href="#" className="details-button">
-                            Details
-                        </a>
-                    </div>
-                </div>
-                <div className="allGames">
-                    <div className="allGames-info">
-                        <img src="./images/avatar-1.jpg" />
-                        <h6>Action</h6>
-                        <h2>MineCraft</h2>
-                        <a href="#" className="details-button">
-                            Details
-                        </a>
-                    </div>
-                </div>
-                {/* Display paragraph: If there is no games  */}
-                <h3 className="no-articles">No articles yet</h3>
-            </section>
+            
         </div>
 
     );

@@ -1,10 +1,14 @@
-
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+
+import { AuthContext } from '../../context/AuthContext';
 
 const Header = () => {
+
+    const { user } = useContext(AuthContext)
+
     return (
         <header>
-            {/* Navigation */}
             <h1>
                 <Link className="home" to="/">
                     GamesPlay
@@ -12,16 +16,20 @@ const Header = () => {
             </h1>
             <nav>
                 <Link to="/catalog">All games</Link>
-                {/* Logged-in users */}
-                <div id="user">
+                {user 
+                    ? <div id="user">
                     <Link to="/create">Create Game</Link>
                     <Link to="/logout">Logout</Link>
-                </div>
-                {/* Guest users */}
-                <div id="guest">
+                    </div>
+                    : <div id="guest">
                     <Link to="/login">Login</Link>
                     <Link to="/register">Register</Link>
-                </div>
+                    </div>
+                }
+                {/* Logged-in users */}
+                
+                {/* Guest users */}
+                
             </nav>
         </header>
     );
